@@ -1,6 +1,6 @@
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { IUserRepository } from 'src/users/infrastructure/repositories/user-repository.interface';
-import { IUseCase } from './../../../shared/application/usecases/use-case.interface';
+import { IUseCase } from '../../../shared/application/usecases/use-case.interface';
 import { BadRequest } from './../errors/bad-request-error';
 
 export namespace UpdateUser {
