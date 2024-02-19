@@ -1,13 +1,12 @@
 import { Entity } from 'src/shared/domain/entities/entity';
 import { UserValidatorFactory } from '../validators/user.validator';
 import { EntityValidationError } from 'src/shared/domain/errors/validation-error';
-import { error } from 'console';
 
 export type UserProps = {
   name: string;
   email: string;
   password: string;
-  created_at: Date;
+  createdAt?: Date | null;
 };
 
 export class UserEntity extends Entity<UserProps> {
@@ -17,7 +16,7 @@ export class UserEntity extends Entity<UserProps> {
   ) {
     UserEntity.validate(props);
     super(props, id);
-    this.props.created_at = this.props.created_at ?? new Date();
+    this.props.createdAt = this.props.createdAt ?? new Date();
   }
 
   update(value: string): void {

@@ -1,7 +1,5 @@
 import { v4 as uuidV4 } from 'uuid';
 
-type EntityJson<T> = { id: string } & T;
-
 export abstract class Entity<Props = any> {
   private readonly _id: string;
   readonly props: Props;
@@ -15,10 +13,10 @@ export abstract class Entity<Props = any> {
     return this._id;
   }
 
-  toJSON(): Required<EntityJson<Props>> {
+  toJSON(): Required<{ id: string } & Props> {
     return {
-      id: this.id,
+      id: this._id,
       ...this.props,
-    } as Required<EntityJson<Props>>;
+    } as Required<{ id: string } & Props>;
   }
 }
