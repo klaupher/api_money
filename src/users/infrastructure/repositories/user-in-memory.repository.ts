@@ -1,5 +1,5 @@
 import { UserEntity } from 'src/users/domain/entities/user.entity';
-import { IUserRepository } from './user-repository.interface';
+import { IUserRepository } from './contracts/user-repository.interface';
 import { InMemorySearchableRepository } from 'src/shared/infrastructure/repositories/in-memory.searchable-repository';
 import { NotFoundError } from 'src/shared/domain/errors/not-found-error';
 import { ConflictError } from 'src/shared/domain/errors/conflic-error';
@@ -14,7 +14,7 @@ export class UserInMemoryRepository
   async findByEmail(email: string): Promise<UserEntity> {
     const entity = this.items.find(item => item.id === email);
     if (!entity) {
-      throw new NotFoundError(`Entity not  - ${email}`);
+      throw new NotFoundError(`Entity not found - ${email}`);
     }
     return entity;
   }

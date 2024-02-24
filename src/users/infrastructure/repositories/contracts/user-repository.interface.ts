@@ -1,4 +1,4 @@
-import { UserEntity } from '../../domain/entities/user.entity';
+import { UserEntity } from '../../../domain/entities/user.entity';
 import {
   SearchParams as DefaultSearchParams,
   SearchResult as DefaultSearchResult,

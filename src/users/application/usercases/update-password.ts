@@ -1,5 +1,5 @@
 import { IUseCase } from 'src/shared/application/usecases/use-case.interface';
-import { IUserRepository } from 'src/users/infrastructure/repositories/user-repository.interface';
+import { IUserRepository } from 'src/users/infrastructure/repositories/contracts/user-repository.interface';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { BadRequest } from 'src/shared/application/errors/bad-request-error';
 import { IHashProvider } from 'src/shared/application/providers/hash-provider';

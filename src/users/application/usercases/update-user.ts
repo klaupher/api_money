@@ -1,5 +1,5 @@
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
-import { IUserRepository } from 'src/users/infrastructure/repositories/user-repository.interface';
+import { IUserRepository } from 'src/users/infrastructure/repositories/contracts/user-repository.interface';
 import { IUseCase } from '../../../shared/application/usecases/use-case.interface';
 import { BadRequest } from '../../../shared/application/errors/bad-request-error';
 

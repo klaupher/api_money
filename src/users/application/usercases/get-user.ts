@@ -1,5 +1,5 @@
 import { IUseCase } from '../../../shared/application/usecases/use-case.interface';
-import { IUserRepository } from '../../infrastructure/repositories/user-repository.interface';
+import { IUserRepository } from '../../infrastructure/repositories/contracts/user-repository.interface';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 
 export namespace GetUser {

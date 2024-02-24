@@ -1,5 +1,5 @@
 import { IUseCase } from 'src/shared/application/usecases/use-case.interface';
-import { IUserRepository } from 'src/users/infrastructure/repositories/user-repository.interface';
+import { IUserRepository } from 'src/users/infrastructure/repositories/contracts/user-repository.interface';
 import { SearchInput } from 'src/shared/application/dtos/search-input';
 import {
   PaginationOutput,

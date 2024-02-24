@@ -1,7 +1,7 @@
 import { IUseCase } from '../../../shared/application/usecases/use-case.interface';
-import { IUserRepository } from '../../infrastructure/repositories/user-repository.interface';
+import { IUserRepository } from '../../infrastructure/repositories/contracts/user-repository.interface';
 
-export namespace GetUser {
+export namespace DeleteUser {
   export type Input = {
     id: string;
   };
