@@ -24,7 +24,10 @@ import { SignInDto } from './dtos/signin.dto';
 import { ListUserDto } from './dtos/list-user.dto';
 import { UpdatePasswordDto } from './dtos/update-password.dto';
 import { UserOutput } from '../application/dtos/user-output';
-import { UserPresenter } from './presenters/user.presenter';
+import {
+  UserCollectionPresenter,
+  UserPresenter,
+} from './presenters/user.presenter';
 
 @Controller('users')
 export class UsersController {
@@ -47,6 +50,10 @@ export class UsersController {
     return new UserPresenter(output);
   }
 
+  static listUserResponse(output: ListUser.Output) {
+    return new UserCollectionPresenter(output);
+  }
+
   @Post()
   async create(@Body() signupDto: SignupDto) {
     const output = await this.signupUseCase.execute(signupDto);
@@ -62,7 +69,8 @@ export class UsersController {
 
   @Get()
   async search(@Query() searchParams: ListUserDto) {
-    return this.listUserUseCase.execute(searchParams);
+    const output = await this.listUserUseCase.execute(searchParams);
+    return UsersController.listUserResponse(output);
   }
 
   @Get(':id')

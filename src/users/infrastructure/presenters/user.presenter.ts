@@ -1,5 +1,7 @@
 import { Transform } from 'class-transformer';
+import { CollectionPresenter } from 'src/shared/infrastructure/presenters/collection.presenter';
 import { UserOutput } from 'src/users/application/dtos/user-output';
+import { ListUser } from 'src/users/application/usercases/list-user';
 
 export class UserPresenter {
   id: string;
@@ -13,5 +15,15 @@ export class UserPresenter {
     this.name = output.name;
     this.email = output.email;
     this.createdAt = output.createdAt;
+  }
+}
+
+export class UserCollectionPresenter extends CollectionPresenter {
+  data: UserPresenter[];
+
+  constructor(output: ListUser.Output) {
+    const { items, ...paginationProps } = output;
+    super(paginationProps);
+    this.data = items.map(item => new UserPresenter(item));
   }
 }
